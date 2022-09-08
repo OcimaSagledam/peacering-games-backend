@@ -80,7 +80,7 @@ router.get('/:id', async function (req, res, next) {
 router.get('/search/:search', async function (req, res, next) {
     try {
         const FAQs = await FAQ.find({
-            title: { $regex: req.params.search, $options: "i" }
+            question: { $regex: req.params.search, $options: "i" }
         }).exec();
         res.send(FAQs);
     } catch (error) {
